@@ -1,13 +1,13 @@
 # Neologism proposals in human–LLM groups: reproduction data and code
 
-This directory contains the minimum de-identified, analysis-ready data and Python code needed to reproduce the **quantitative results** in the revised Scientific Reports manuscript and Supplementary Information. The study compared two sequential recruitment waves of 50 human participants each. The proposal condition and recruitment wave coincide exactly; a between-wave coefficient is therefore not an identified causal effect of neologism exposure.
+This directory contains de-identified, analysis-ready data and Python code needed to reproduce the **quantitative results** in the revised Scientific Reports manuscript and Supplementary Information, together with the two condition-specific Discord discussion programs. The study compared two sequential recruitment waves of 50 human participants each. The proposal condition and recruitment wave coincide exactly; a between-wave coefficient is therefore not an identified causal effect of neologism exposure.
 
 ## Contents
 
 | Directory | Purpose |
 |---|---|
 | [`data/`](data/README.md) | Participant-level scores and covariates, relative message times, classified original count events, author/LLM validation scores, agent activity, and separately listed agent-proposed words |
-| [`code/`](code/README.md) | One-command analysis script and Python dependencies |
+| [`code/`](code/README.md) | One-command analysis script, Python dependencies, and the condition-specific Discord discussion programs |
 
 ## Run
 
@@ -26,7 +26,7 @@ The script writes CSV tables and a data-driven `figure2.pdf` to `results/`. This
 
 The package recomputes the primary and secondary between-wave comparisons, interaction and sensitivity models, exploratory demographic and uptake models, scale diagnostics, message-timing and pseudo-cutoff analyses, human-rating/LLM-score agreement, repeated-score agreement, descriptive summaries (including the detailed education categories and proposed-word score ranking), minimum detectable differences, and the quantitative Figure 2 forest plot. Key results should round to: primary adjusted wave coefficient **−0.073** (*p* = .549), pooled change-score three-way coefficient **0.364** (nominal *p* = .027; BH-FDR *p* = .082), word-evaluation coefficient **0.227** (nominal *p* = .038; BH-FDR *p* = .229), and 15/50 participants with broad word uptake.
 
-This is an analysis-ready release. It does **not** contain original questionnaire workbooks, Discord transcripts, free-text team descriptions, account names or IDs, absolute timestamps, mappings to source account identities, API credentials, or bot control code. The published Gemini and human scores are inputs to the reproducibility analyses; the package does not re-query Gemini or independently verify the original text coding. The original message-count filter can be reapplied to classified source events for 99 participants; one count was recovered from an aggregate workbook. The validation cases can be linked to public participant IDs, allowing the random sample and score matching to be checked. The proposed-word file has no explicit participant ID, although unique rating pairs can allow some records to be matched indirectly. Prompt wording, selected translated examples, and the study procedure are documented in the Supplementary Information.
+This is an analysis-ready release. It does **not** contain original questionnaire workbooks, Discord transcripts, free-text team descriptions, account names or IDs, absolute timestamps, mappings to source account identities, or API credentials. Sanitized copies of the two condition-specific Discord bot programs are included in [`code/discord_system/`](code/discord_system/README.md); these document the study procedure but are not used by the statistical reproduction script. The published Gemini and human scores are inputs to the reproducibility analyses; the package does not re-query Gemini or independently verify the original text coding. The original message-count filter can be reapplied to classified source events for 99 participants; one count was recovered from an aggregate workbook. The validation cases can be linked to public participant IDs, allowing the random sample and score matching to be checked. The proposed-word file has no explicit participant ID, although unique rating pairs can allow some records to be matched indirectly. Prompt wording and selected translated examples are documented in the Supplementary Information.
 
 Participant IDs in the released tables are newly assigned and have no accompanying mapping to source identities. The three named dropouts identified in the private audit were excluded before this 100-person analysis set was prepared.
 
@@ -38,7 +38,7 @@ Participant IDs in the released tables are newly assigned and have no accompanyi
 | Selection of 25 human-validation responses per wave and matching of original LLM scores | Replayed and checked against pseudonymous case IDs |
 | Original total message count | Recounted from text-free `role=user` event classes for 99 participants; one value of 34 came from the original aggregate workbook because its source JSON is unavailable |
 | Gemini scoring of the original free-text responses and manual classification of word uptake | The released scores and classifications are analysis inputs; their derivation cannot be independently checked without the withheld text |
-| Translated dialogue examples, word explanations, interface illustration, and the original live agent interactions | Described or displayed in the manuscript, but not regenerated by this statistical package |
+| Translated dialogue examples, word explanations, interface illustration, and the original live agent interactions | The released condition-specific bot programs document the implementation, but the original interactions are not regenerated by this statistical package |
 
 ## Privacy and reuse
 

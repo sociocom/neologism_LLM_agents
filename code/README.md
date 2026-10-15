@@ -42,3 +42,7 @@ The script was checked against the current manuscript using Python 3.12 and the 
 
 The code reproduces statistical results from analysis-ready inputs. It does not recreate the original bot dialogue, perform sentiment scoring on private text, or independently recode word use from private transcripts.
 The audited within-discussion message counts are checked against released relative message times. For 99 participants, the original total message count is recomputed from anonymized `role=user` event classes, excluding `author=reply`. The remaining participant's count of 34 was recovered from the original aggregate workbook because its source JSON was unavailable; its source-event derivation cannot be checked from this package.
+
+## Discord discussion implementation
+
+The [`discord_system/`](discord_system/README.md) directory contains sanitized copies of the proposal-wave and comparison-wave Discord bot programs. They document agent prompts, discussion timing, proposal and reuse settings, and the operational difference between conditions. They are separate from the analysis script and require external Discord/Gemini services and server-specific configuration to run. The original wave-specific questionnaire URLs have been replaced with environment variables; no private `.env` file or conversation log is included.
